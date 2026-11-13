@@ -1,0 +1,33 @@
+/* Impresión: carta vertical, margen 12 mm. Solo se imprime #print-root. */
+
+@page {
+  size: letter portrait;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    background: var(--label-paper) !important;
+    color: var(--label-ink) !important;
+  }
+
+  /* Nada de la UI: ni app, ni fondo, ni diálogos, ni vista previa */
+  body > :not(#print-root) {
+    display: none !important;
+  }
+
+  #print-root {
+    display: block !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

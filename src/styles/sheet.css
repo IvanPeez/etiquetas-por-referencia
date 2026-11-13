@@ -1,0 +1,110 @@
+/* Hoja y etiqueta: el mismo componente en vista previa e impresión.
+   Medidas en mm reales (brief §7). Siempre negro sobre blanco; nunca se tematiza. */
+
+.sheet {
+  display: grid;
+  grid-template-columns: repeat(4, 45mm);
+  grid-auto-rows: 20mm;
+  column-gap: 3.9mm;
+  row-gap: 1.3mm;
+  align-content: start;
+  /* 4×45 + 3×3,9 = 191,7 mm; 12×20 + 11×1,3 = 254,3 mm (área útil: 191,9 × 255,4 mm) */
+  width: 191.7mm;
+  height: 254.3mm;
+  /* clip (no hidden) + margen: deja ver la línea de corte inferior (0,65 mm) sin crear
+     desbordamiento que pueda generar páginas extra; 254,3 + 0,65 < 255,4 mm útiles */
+  overflow: clip;
+  overflow-clip-margin: 1mm;
+  background: var(--label-paper);
+  color: var(--label-ink);
+  break-inside: avoid;
+  break-after: page;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.sheet:last-child {
+  break-after: auto;
+}
+
+.label {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-items: center;
+  align-items: center;
+  width: 45mm;
+  height: 20mm;
+  position: relative;
+  padding: 1.5mm;
+  break-inside: avoid;
+  background: var(--label-paper);
+  color: var(--label-ink);
+  font-family: system-ui, 'Segoe UI', Arial, sans-serif;
+}
+
+.label--empty {
+  visibility: hidden;
+}
+
+.label__name {
+  display: -webkit-box;
+  width: 100%;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  font-size: 7pt;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.label__bars {
+  display: block;
+  fill: var(--label-ink);
+}
+
+.label__value {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 7pt;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ---------- Líneas de corte ----------
+   Guías en el CENTRO del espacio entre etiquetas (1,95 mm a los lados, 0,65 mm arriba/abajo):
+   un solo corte por espacio. Cada línea se dibuja una sola vez para que todas tengan el mismo
+   grosor (Chrome redondea los bordes a 1 px CSS ≈ 0,26 mm):
+   - toda etiqueta pone su línea derecha e inferior;
+   - la izquierda solo en la columna 1; la superior solo si arriba no hay etiqueta
+     (clase .label--corte-arriba, calculada al construir la hoja).
+   En los bordes exteriores de la hoja la guía va pegada a la etiqueta (no cae en el margen).
+   Queda a ≥ 5 mm de las barras: no invade el margen de silencio del código. */
+.label:not(.label--empty)::before {
+  content: '';
+  position: absolute;
+  inset: -0.65mm -1.95mm;
+  border: 0 solid var(--label-cut);
+  border-right-width: var(--label-cut-w);
+  border-bottom-width: var(--label-cut-w);
+  pointer-events: none;
+}
+
+.sheet > .label:nth-child(4n + 1)::before {
+  left: 0;
+  border-left-width: var(--label-cut-w);
+}
+
+.sheet > .label:nth-child(4n)::before {
+  right: 0;
+}
+
+.sheet > .label.label--corte-arriba::before {
+  border-top-width: var(--label-cut-w);
+}
+
+.sheet > .label:nth-child(-n + 4)::before {
+  top: 0;
+}

@@ -1,0 +1,56 @@
+# Construye etiquetas.html desde el Excel de data/ y lo publica en GitHub Pages.
+name: Publicar en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Pruebas unitarias (catálogo, búsqueda, lote, layout, Code 128, historial)
+        run: npm run catalog && npm test
+
+      - name: Build (falla si los conteos del catálogo no cuadran)
+        run: npm run build
+
+      - name: Preparar el sitio
+        run: |
+          mkdir -p _site
+          cp dist/etiquetas.html _site/index.html
+          cp dist/etiquetas.html _site/etiquetas.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

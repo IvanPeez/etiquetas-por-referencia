@@ -1,0 +1,32 @@
+{
+  "name": "etiquetas-por-referencia",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run catalog && tsc && vite build",
+    "preview": "vite preview",
+    "catalog": "tsx scripts/build-catalog.ts",
+    "test": "vitest run",
+    "test:e2e": "npm run build && vitest run --config vitest.e2e.config.ts",
+    "pdf": "tsx scripts/pdf.ts",
+    "qa": "npm test && npm run test:e2e && npm run pdf"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "axe-core": "^4.14.0",
+    "playwright": "^1.65.0",
+    "tsx": "^4.23.15",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.6",
+    "vite-plugin-singlefile": "^2.3.4",
+    "vitest": "^5.1.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  },
+  "dependencies": {
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
+    "gsap": "^3.15.1",
+    "jsbarcode": "^3.12.3"
+  }
+}

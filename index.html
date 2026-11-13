@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Etiquetas por referencia</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#buscar">Saltar al buscador</a>
+    <div class="glow" aria-hidden="true"></div>
+
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-logo" viewBox="0 0 24 24"><path d="M4 5v14M7 5v14M10.5 5v14M13 5v14M17 5v14M20 5v14" stroke-width="1.75" stroke-linecap="round"/><path d="M8.5 5v14M18.5 5v14" stroke-width="1"/></symbol>
+        <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.4V4.8c0-.7.6-1.3 1.3-1.3h7.6c.3 0 .7.1.9.4l7.3 7.3c.5.5.5 1.3 0 1.8l-7.6 7.6c-.5.5-1.3.5-1.8 0l-7.3-7.3c-.3-.2-.4-.6-.4-.9Z" stroke-width="1.75" stroke-linejoin="round"/><circle cx="8.25" cy="8.25" r="1.5" stroke-width="1.75"/></symbol>
+        <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.75" stroke-width="1.75"/><path d="M9.6 9.4a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.1-2.4 3.6" stroke-width="1.75" stroke-linecap="round"/><circle cx="12" cy="17" r=".6" fill="currentColor" stroke="none"/></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.75" stroke-width="1.75"/><path d="m16 16 4.25 4.25" stroke-width="1.75" stroke-linecap="round"/></symbol>
+        <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.5 6.5h15M9.5 6.5V4.75c0-.4.3-.75.75-.75h3.5c.4 0 .75.3.75.75V6.5M6.5 6.5l.8 12.1c.1.8.7 1.4 1.5 1.4h6.4c.8 0 1.4-.6 1.5-1.4l.8-12.1" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.75 12S6 5.75 12 5.75 21.25 12 21.25 12 18 18.25 12 18.25 2.75 12 2.75 12Z" stroke-width="1.75" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.75" stroke-width="1.75"/></symbol>
+        <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3.75h10V9M7 17H5a1.75 1.75 0 0 1-1.75-1.75v-4.5C3.25 9.78 4.03 9 5 9h14c.97 0 1.75.78 1.75 1.75v4.5c0 .97-.78 1.75-1.75 1.75h-2" stroke-width="1.75" stroke-linejoin="round"/><path d="M7 14h10v6.25H7z" stroke-width="1.75" stroke-linejoin="round"/></symbol>
+        <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.5 4.2 2.9 17.5c-.7 1.2.2 2.6 1.5 2.6h15.2c1.3 0 2.2-1.4 1.5-2.6L13.5 4.2c-.7-1.2-2.3-1.2-3 0Z" stroke-width="1.75" stroke-linejoin="round"/><path d="M12 9.5v4" stroke-width="1.75" stroke-linecap="round"/><circle cx="12" cy="16.6" r=".6" fill="currentColor" stroke="none"/></symbol>
+        <symbol id="i-history" viewBox="0 0 24 24"><path d="M3.75 12a8.25 8.25 0 1 0 2.4-5.82" stroke-width="1.75" stroke-linecap="round"/><path d="M3.5 4.5v3.75h3.75" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8v4.25l2.75 1.75" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-undo" viewBox="0 0 24 24"><path d="M8.5 13.5 4 9l4.5-4.5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9h10.25a5.75 5.75 0 0 1 0 11.5H11" stroke-width="1.75" stroke-linecap="round"/></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="m6.5 6.5 11 11m0-11-11 11" stroke-width="1.75" stroke-linecap="round"/></symbol>
+      </defs>
+    </svg>
+
+    <div class="app">
+      <nav class="rail" aria-label="Principal">
+        <span class="rail__logo" title="Etiquetas por referencia"><svg class="icon"><use href="#i-logo" /></svg></span>
+        <a class="rail__btn" href="#productos" aria-current="page" title="Etiquetas">
+          <svg class="icon" aria-hidden="true"><use href="#i-tag" /></svg><span class="sr-only">Etiquetas</span>
+        </a>
+        <button class="rail__btn" type="button" data-ir-tab="tab-impresas" title="Referencias impresas">
+          <svg class="icon" aria-hidden="true"><use href="#i-history" /></svg><span class="sr-only">Referencias impresas</span>
+        </button>
+        <button class="rail__btn" type="button" data-abrir="ayuda" title="Ayuda de impresión">
+          <svg class="icon" aria-hidden="true"><use href="#i-help" /></svg><span class="sr-only">Ayuda de impresión</span>
+        </button>
+      </nav>
+
+      <main class="main">
+        <header class="head">
+          <div class="head__title">
+            <h1>Etiquetas por referencia</h1>
+            <p class="head__summary" data-resumen aria-live="polite">0 etiquetas · 0 hojas · 0 referencias</p>
+          </div>
+
+          <div class="actions" role="group" aria-label="Acciones del lote">
+            <p class="actions__summary" data-resumen aria-hidden="true">0 etiquetas · 0 hojas · 0 referencias</p>
+            <p class="chip chip--warning" id="aviso-impresion">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-alert" /></svg>
+              <span>Papel carta · Escala 100 % / tamaño real · Desactivar encabezados y pies de página</span>
+            </p>
+            <div class="actions__buttons">
+              <button class="btn btn--ghost btn--danger" type="button" id="btn-vaciar" disabled>
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#i-trash" /></svg>Vaciar lista
+              </button>
+              <button class="btn btn--ghost" type="button" id="btn-vista" disabled aria-describedby="estado-lote">
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#i-eye" /></svg>Vista previa
+              </button>
+              <button class="btn btn--primary" type="button" id="btn-imprimir" disabled aria-describedby="estado-lote aviso-impresion">
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#i-print" /></svg>Imprimir etiquetas
+              </button>
+            </div>
+            <p class="actions__status" id="estado-lote" role="status">Escribe unidades junto a una referencia para empezar.</p>
+          </div>
+        </header>
+
+        <section class="kpis" aria-label="Resumen del lote">
+          <article class="panel kpi">
+            <h2 class="kpi__label">Etiquetas</h2>
+            <p class="kpi__value kpi__value--grad" data-kpi="etiquetas">0</p>
+            <p class="kpi__hint">4 por fila · 48 por hoja</p>
+          </article>
+          <article class="panel kpi kpi--ring">
+            <div>
+              <h2 class="kpi__label">Hojas</h2>
+              <p class="kpi__value" data-kpi="hojas">0</p>
+              <p class="kpi__hint" data-kpi="ultima-hoja">Carta · 12 filas por hoja</p>
+            </div>
+            <svg class="ring" viewBox="0 0 64 64" role="img" aria-labelledby="ring-label">
+              <title id="ring-label">Llenado de la última hoja</title>
+              <defs>
+                <linearGradient id="ring-grad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="var(--color-primary)" />
+                  <stop offset="1" stop-color="var(--color-primary-2)" />
+                </linearGradient>
+              </defs>
+              <circle class="ring__track" cx="32" cy="32" r="27" />
+              <circle class="ring__bar" cx="32" cy="32" r="27" pathLength="100" data-kpi="ring" />
+              <text class="ring__text" x="32" y="32" data-kpi="ring-text">0 %</text>
+            </svg>
+          </article>
+          <article class="panel kpi kpi--bars">
+            <div>
+              <h2 class="kpi__label">Referencias</h2>
+              <p class="kpi__value" data-kpi="referencias">0</p>
+              <p class="kpi__hint">En el lote, por presentación</p>
+            </div>
+            <ul class="bars" aria-label="Referencias por presentación" data-kpi="barras">
+              <li data-pres="120"><span class="bars__n">0</span><span class="bars__track"><span class="bars__fill"></span></span><span class="bars__k">120</span></li>
+              <li data-pres="250"><span class="bars__n">0</span><span class="bars__track"><span class="bars__fill"></span></span><span class="bars__k">250</span></li>
+              <li data-pres="500"><span class="bars__n">0</span><span class="bars__track"><span class="bars__fill"></span></span><span class="bars__k">500</span></li>
+              <li data-pres="1000"><span class="bars__n">0</span><span class="bars__track"><span class="bars__fill"></span></span><span class="bars__k">1000</span></li>
+              <li data-pres="sin"><span class="bars__n">0</span><span class="bars__track"><span class="bars__fill"></span></span><span class="bars__k">Sin</span></li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="panel filters" aria-label="Filtros">
+          <fieldset class="segmented" id="filtro-presentacion">
+            <legend class="filters__label">Presentación</legend>
+            <div class="segmented__track">
+              <label><input type="radio" name="pres" value="120" checked /><span>120</span></label>
+              <label><input type="radio" name="pres" value="250" /><span>250</span></label>
+              <label><input type="radio" name="pres" value="500" /><span>500</span></label>
+              <label><input type="radio" name="pres" value="1000" /><span>1000</span></label>
+              <label><input type="radio" name="pres" value="sin" /><span title="Sin presentación">Sin pres.</span></label>
+              <label><input type="radio" name="pres" value="todas" /><span>Todas</span></label>
+            </div>
+          </fieldset>
+
+          <div class="search">
+            <label class="filters__label" for="buscar">Buscar producto</label>
+            <div class="search__field">
+              <svg class="icon icon--sm search__icon" aria-hidden="true"><use href="#i-search" /></svg>
+              <input id="buscar" type="search" placeholder="Nombre, referencia o código de barras" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-describedby="buscar-ayuda" />
+              <kbd class="search__kbd" aria-hidden="true">/</kbd>
+            </div>
+            <span class="sr-only" id="buscar-ayuda">Enter lleva al primer resultado.</span>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" role="switch" id="solo-cantidad" />
+            <span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>
+            <span>Mostrar solo referencias con cantidad</span>
+          </label>
+        </section>
+
+        <section class="panel table-panel" id="productos" aria-labelledby="productos-titulo">
+          <div class="panel__head">
+            <h2 id="productos-titulo">Productos</h2>
+            <p class="panel__meta" id="conteo-resultados" aria-live="polite"></p>
+          </div>
+          <div class="table-scroll" tabindex="-1">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col" class="col-ref">Referencia</th>
+                  <th scope="col" class="col-code">Código</th>
+                  <th scope="col" class="col-qty">Unidades</th>
+                </tr>
+              </thead>
+              <tbody id="filas"></tbody>
+            </table>
+            <p class="empty" id="sin-resultados" hidden></p>
+          </div>
+        </section>
+
+        <aside class="panel lote-panel" aria-label="Lote e impresiones">
+          <div class="tabs" role="tablist" aria-label="Vista del panel">
+            <button class="tabs__tab" type="button" role="tab" id="tab-lote" aria-controls="vista-lote" aria-selected="true">
+              <span id="lote-titulo">Lote actual</span><span class="tabs__n" data-kpi="lote-meta"></span>
+            </button>
+            <button class="tabs__tab" type="button" role="tab" id="tab-impresas" aria-controls="vista-impresas" aria-selected="false" tabindex="-1">
+              <span>Impresas</span><span class="tabs__n" data-hist="conteo"></span>
+            </button>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="vista-lote" aria-labelledby="tab-lote">
+            <ol class="lote-list" id="lote-lista"></ol>
+            <p class="empty" id="lote-vacio">Escribe unidades junto a una referencia para agregarla. El orden de impresión sigue el orden en que las agregas.</p>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="vista-impresas" aria-labelledby="tab-impresas" hidden>
+            <div class="hist-head">
+              <h3>Referencias impresas</h3>
+              <p class="panel__meta" data-hist="totales"></p>
+            </div>
+            <ol class="lote-list hist-list" id="hist-lista"></ol>
+            <p class="empty" id="hist-vacio">Todavía no se ha impreso nada. Cada vez que imprimas, las referencias y sus cantidades quedan aquí, guardadas en este equipo.</p>
+            <div class="hist-actions" data-hist="acciones" hidden>
+              <button class="btn btn--ghost btn--sm" type="button" id="btn-deshacer-impresion">
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#i-undo" /></svg>Deshacer última impresión
+              </button>
+              <button class="btn btn--ghost btn--danger btn--sm" type="button" id="btn-borrar-historial">
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#i-trash" /></svg>Borrar historial
+              </button>
+            </div>
+          </div>
+
+          <section class="last-print" aria-labelledby="ultima-titulo" aria-live="polite">
+            <h3 id="ultima-titulo">Última referencia impresa</h3>
+            <p class="last-print__empty" data-hist="ultima-vacia">Ninguna todavía.</p>
+            <div class="last-print__body" data-hist="ultima" hidden>
+              <span class="last-print__name" data-hist="ultima-nombre"></span>
+              <span class="last-print__meta mono" data-hist="ultima-meta"></span>
+            </div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <dialog class="dialog" id="dialogo-borrar-historial" aria-labelledby="borrar-hist-titulo">
+      <form method="dialog">
+        <h2 id="borrar-hist-titulo">¿Borrar el historial de impresión?</h2>
+        <p data-borrar-hist-texto>Se borrarán todas las referencias impresas guardadas en este equipo.</p>
+        <div class="dialog__actions">
+          <button class="btn btn--ghost" value="cancelar" autofocus>Cancelar</button>
+          <button class="btn btn--danger-solid" value="borrar">Borrar historial</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="dialog" id="dialogo-vaciar" aria-labelledby="vaciar-titulo">
+      <form method="dialog">
+        <h2 id="vaciar-titulo">¿Vaciar la lista?</h2>
+        <p data-vaciar-texto>Se quitarán todas las referencias del lote.</p>
+        <div class="dialog__actions">
+          <button class="btn btn--ghost" value="cancelar" autofocus>Cancelar</button>
+          <button class="btn btn--danger-solid" value="vaciar">Vaciar lista</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="dialog" id="ayuda" aria-labelledby="ayuda-titulo">
+      <form method="dialog">
+        <h2 id="ayuda-titulo">Ayuda de impresión</h2>
+        <ol class="steps">
+          <li>Usa <strong>papel carta</strong> en orientación vertical.</li>
+          <li>En el cuadro de impresión elige <strong>Escala 100 %</strong> o <strong>Tamaño real</strong>. No uses «Ajustar a la página».</li>
+          <li>Desactiva <strong>Encabezados y pies de página</strong>.</li>
+          <li>Cada etiqueta mide 45 × 20 mm: 4 por fila, 12 filas, 48 por hoja.</li>
+          <li>Cada referencia empieza en una fila nueva; los espacios sobrantes quedan en blanco.</li>
+        </ol>
+        <div class="dialog__actions">
+          <button class="btn btn--primary" value="ok" autofocus>Entendido</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="preview" id="vista-previa" aria-labelledby="vista-titulo">
+      <div class="preview__bar">
+        <div class="preview__title">
+          <h2 id="vista-titulo">Vista previa</h2>
+          <p class="preview__meta" data-vista-resumen></p>
+        </div>
+        <p class="chip chip--warning">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-alert" /></svg>
+          <span>Papel carta · Escala 100 % / tamaño real · Desactivar encabezados y pies de página</span>
+        </p>
+        <div class="preview__actions">
+          <button class="btn btn--ghost" type="button" data-cerrar-vista>Cerrar</button>
+          <button class="btn btn--primary" type="button" id="vista-imprimir">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-print" /></svg>Imprimir etiquetas
+          </button>
+        </div>
+        <progress class="preview__progress" max="1" value="0" hidden aria-label="Preparando la vista previa"></progress>
+      </div>
+      <div class="preview__scroll">
+        <div class="preview__pages" id="vista-hojas"></div>
+      </div>
+    </dialog>
+
+    <div class="preparing" id="preparando" role="status" aria-live="polite" hidden>
+      <div class="preparing__card">
+        <p data-preparando-texto>Preparando etiquetas…</p>
+        <progress max="1" value="0" aria-hidden="true"></progress>
+      </div>
+    </div>
+
+    <template id="tpl-fila">
+      <tr>
+        <td class="col-name"><span class="name"></span><span class="sub"></span></td>
+        <td class="col-ref mono"></td>
+        <td class="col-code mono"></td>
+        <td class="col-qty">
+          <input class="qty" type="number" min="0" max="9999" step="1" inputmode="numeric" placeholder="0" />
+          <span class="qty__error" role="alert"></span>
+        </td>
+      </tr>
+    </template>
+
+    <template id="tpl-lote">
+      <li>
+        <span class="lote-list__pos mono"></span>
+        <span class="lote-list__main"><span class="lote-list__name"></span><span class="lote-list__ref mono"></span></span>
+        <span class="lote-list__qty mono"></span>
+        <button class="icon-btn" type="button"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-x" /></svg></button>
+      </li>
+    </template>
+
+    <template id="tpl-hist">
+      <li>
+        <span class="lote-list__main"><span class="lote-list__name"></span><span class="lote-list__ref mono"></span></span>
+        <span class="hist-list__qty"><span class="lote-list__qty mono"></span><span class="hist-list__unit">etiq.</span></span>
+      </li>
+    </template>
+
+    <div id="print-root" aria-hidden="true"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

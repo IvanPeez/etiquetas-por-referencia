@@ -1,0 +1,121 @@
+/* Tokens del brief (§4). Única fuente de colores, tamaños y espacios de la UI.
+   La etiqueta impresa usa --label-ink / --label-paper y mm reales; nunca se tematiza. */
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../../node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../../node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2') format('woff2');
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Fondo */
+  --color-bg: #060b26;
+  --blob-blue: rgb(30 64 255 / 0.35);
+  --blob-indigo: rgb(67 24 255 / 0.25);
+  --blob-warm: rgb(255 122 61 / 0.15);
+
+  /* Vidrio */
+  --glass-bg: linear-gradient(127deg, rgb(6 11 40 / 0.78) 19%, rgb(10 14 35 / 0.55) 77%);
+  --glass-fallback: rgb(10 14 35 / 0.92);
+  --glass-border: rgb(255 255 255 / 0.08);
+  --glass-border-top: rgb(255 255 255 / 0.14);
+  --glass-blur: blur(24px) saturate(140%);
+  --glass-shadow: 0 8px 32px rgb(0 0 0 / 0.45), inset 0 1px 0 rgb(255 255 255 / 0.06);
+  --veil: rgb(6 11 38 / 0.7);
+  --veil-blur: blur(8px);
+
+  /* Texto */
+  --color-fg: #f4f6ff;
+  --color-muted: #a0aec0;
+
+  /* Acento y estados */
+  --color-primary: #0075ff;
+  --color-primary-2: #4318ff;
+  --grad-primary: linear-gradient(135deg, var(--color-primary), var(--color-primary-2));
+  --glow-primary: 0 0 24px rgb(0 117 255 / 0.45);
+  --color-accent: rgb(0 117 255 / 0.14);
+  --accent-bar: 3px;
+  --color-success: #01b574;
+  --color-warning: #ffb547;
+  --color-warning-bg: rgb(255 181 71 / 0.12);
+  --color-danger: #ff5a5f;
+  --color-danger-bg: rgb(255 90 95 / 0.12);
+
+  /* Superficies internas */
+  --row-divider: rgb(255 255 255 / 0.06);
+  --row-hover: rgb(255 255 255 / 0.04);
+  --field-bg: rgb(255 255 255 / 0.06);
+  --field-bg-hover: rgb(255 255 255 / 0.09);
+  --field-border: rgb(255 255 255 / 0.12);
+  --track: rgb(255 255 255 / 0.08);
+  --selection: rgb(0 117 255 / 0.4);
+
+  /* Etiqueta (fijos) */
+  --label-ink: #000000;
+  --label-paper: #ffffff;
+  /* Guías de corte: gris claro, fuera de la etiqueta */
+  --label-cut: #b3b3b3;
+  --label-cut-w: 0.1mm;
+
+  /* Tipografía */
+  --font-ui: 'Plus Jakarta Sans', system-ui, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, Consolas, monospace;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+  --fs-lg: 1.25rem;
+  --fs-kpi: clamp(2rem, 1.6rem + 1.5vw, 2.75rem);
+  --lh-tight: 1.2;
+  --lh-base: 1.5;
+  --tracking-caps: 0.06em;
+  --tracking-tight: -0.02em;
+
+  /* Espaciado (escala de 4 px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --gutter: 16px;
+  --grid-gap: 20px;
+  --max-width: 1440px;
+  --rail-width: 64px;
+
+  /* Formas y controles */
+  --radius-panel: 20px;
+  --radius-field: 14px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+  --control-h: 44px;
+  --control-h-sm: 36px;
+  --icon: 20px;
+  --icon-sm: 16px;
+  --switch-pad: 3px;
+  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-primary);
+
+  /* Movimiento (solo transform/opacity) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-fast: 160ms;
+  --dur-base: 220ms;
+}

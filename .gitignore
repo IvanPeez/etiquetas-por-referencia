@@ -1,0 +1,41 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ---- Proyecto ----
+# Copias sueltas en la raíz (la fuente oficial es data/Producto - etiquetas por referencia.xlsx)
+/*.xlsx
+/Imprimir etiquetas por referencia.html
+# HTML de referencia de 6 MB (solo consulta local)
+data/Imprimir etiquetas por referencia.html
+# Archivos de bloqueo de Excel
+~$*
+# Skills de diseño instaladas localmente (se restauran con skills-lock.json)
+.agents/
+.claude/skills/
+# Salidas de QA
+test-results/
+playwright-report/
+# Catálogo generado desde el Excel (npm run catalog)
+src/data/catalog.json
