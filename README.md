@@ -4,6 +4,8 @@ Herramienta interna para elegir referencias del catálogo, asignar unidades e im
 
 **Entregable:** `dist/etiquetas.html`, un único archivo autónomo con el catálogo y el generador de códigos incluidos. Se abre con doble clic en Chrome o Edge y funciona sin internet, sin servidor y sin instalar nada.
 
+**En línea:** <https://ivanpeez.github.io/etiquetas-por-referencia/>. GitHub Pages lo publica automáticamente con cada push a `main` (`.github/workflows/pages.yml`). El historial de impresas se guarda por navegador y por sitio, así que el historial de la versión en línea es distinto del de la versión local.
+
 ---
 
 ## Uso (operarios)
